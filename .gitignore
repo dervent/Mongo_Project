@@ -1,0 +1,3 @@
+# NodeJS packages/directories
+package*.json
+node_modules
