@@ -6,7 +6,7 @@
 //collection = db.getCollection('TalkData');
 const express = require('express');
 const app = express();
-app.use(express.static('www'));
+app.use(express.static('pages'));
 app.use(express.static('css'));
 app.use(express.static('js'));
 //app.use(express.static('../SiteFiles'));
