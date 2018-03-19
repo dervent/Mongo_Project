@@ -19,12 +19,11 @@ class DataLayer:
 
     def search_by_default(self, search_text):
         """
-        When a filter (field) or sort is not specified, query for text in the default fields: title and description
+        When a filter (field) or sort is not specified, query for text in the default field, title
         :param search_text: user-specified text
         :return: cursor object containing all matching documents
         """
-        return self.collection.find({'$and':[{'title': {'$regex': search_text, '$options': 'i'}},
-                                          {'description': {'$regex': search_text, '$options': 'i'}}]})
+        return self.collection.find({'title': {'$regex': search_text, '$options': 'i'}})
 
     def search_by_filter(self, search_text, field_filter):
         """
@@ -37,15 +36,13 @@ class DataLayer:
 
     def search_by_sort(self, search_text, sort_field):
         """
-        Query for the text in the default fields, title and description, then sort in ascending order
+        Query for the text in the default field, title, then sort in ascending order
         by the sort option specified
         :param search_text: user-specified text
         :param sort_field: user-selected sort value
         :return: cursor object containing all matching documents
         """
-        return self.collection.find({'$and':[{'title': {'$regex': search_text, '$options': 'i'}},
-                                          {'description': {'$regex': search_text, '$options': 'i'}}]}).sort(
-            sort_field, ASCENDING)
+        return self.collection.find({'title': {'$regex': search_text, '$options': 'i'}}).sort(sort_field, ASCENDING)
 
     def search_by_filter_sort(self, search_text, field_filter, sort_field):
         """

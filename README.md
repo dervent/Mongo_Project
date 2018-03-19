@@ -8,7 +8,7 @@ This is the repository for group 5's Contemporary Databases (ISTE.438.01) projec
 3. Download and install Pip: <br/>
    a. Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and save to a local directory <br/>
    b. Install Pip by running: `$ python get-pip.py` <br/>
-   c. Verify successful installation by running with no errors: `$ pip freeze`
+   c. Verify successful installation by running with no errors: `$ pip freeze` <br/>
    d. Install virtual environment & virtual environment wrapper <br/>
    `$ pip install virtualenv`<br/>
    `$ pip install virtualenvwrapper`<br/>
@@ -16,9 +16,9 @@ This is the repository for group 5's Contemporary Databases (ISTE.438.01) projec
 4. Create and activate your virtual environment <br/>
     `$ mkvirtualenv mongo_project` _(or any name you would like)_ <br/>
     `$ workon mongo_project` <br/>
-5. Inside your `Mongo_Project` directory, install all the Python dependencies you will need for the project. <br/>
+5. At the top level of your `Mongo_Project` directory, install all the Python dependencies you will need for the project. <br/>
 	`$ pip install -r requirements.txt` <br/>
-    _If there any more dependencies/modules to be added, add it to the text file._
+    _If there are any more dependencies/modules that you have to use, add them to the text file._
 
 ## Running the App Locally
  1. Ensure you have activated your virtual environment
@@ -28,5 +28,5 @@ This is the repository for group 5's Contemporary Databases (ISTE.438.01) projec
     `$ python app.js` <br/>
  4. Open a browser and navigate to `http://127.0.0.1:5000/` to interact with the app
 
-### References
+## References
 - [Python & pip Windows installation](https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation)

@@ -1,8 +1,5 @@
 /**
  * Client-Side JavaScript
- * ISTE.438.01
- * Group 5
- * Ted Talks Search
  */
 
 function searchForDocs() {

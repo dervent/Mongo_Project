@@ -19,7 +19,7 @@ class BusinessLayer:
         :param search_text: user-specified text
         :return: search string with RegEx patterns
         """
-        search_text = '\\b' + '\\b.*'.join(search_text.split())
+        search_text = '\\b' + '.*\\b'.join(search_text.split()) + ".*"
         return search_text
 
     def search_by_default(self, search_text):
@@ -73,4 +73,4 @@ class BusinessLayer:
         :param comment: user-specified comment strinf
         :return: success or failure of updating document with comment
         """
-        comment = comment.split()
+        comment = 'TBD'

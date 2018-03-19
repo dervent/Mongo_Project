@@ -2,5 +2,7 @@
 Jinja2 template used by Flask to return data in HTML
 -->
 {% for document in documents_list %}
-    <p>{{document.title}}</p>
+    <strong>{{document.title}}</strong>
+    <p>{{document.description}}</p>
+    <br/>
 {% endfor %}
