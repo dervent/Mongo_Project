@@ -20,7 +20,7 @@ class BusinessLayer:
         :return: search string with RegEx patterns
         """
         search_text = '\\b' + '.*\\b'.join(search_text.split()) + ".*"
-        return search_text
+        return search_text.strip()
 
     def search_by_default(self, search_text):
         """
@@ -42,7 +42,7 @@ class BusinessLayer:
         :return: TBD
         """
         search_text = self.format_search_text(search_text)
-        field_filter = field_filter.split()
+        field_filter = field_filter.strip()
 
     def search_by_sort(self, search_text, sort_field):
         """
@@ -52,7 +52,7 @@ class BusinessLayer:
         :return: TBD
         """
         search_text = self.format_search_text(search_text)
-        sort_field = sort_field.split()
+        sort_field = sort_field.strip()
 
     def search_by_filter_sort(self, search_text, field_filter, sort_field):
         """
@@ -63,8 +63,8 @@ class BusinessLayer:
         :return: TBD
         """
         search_text = self.format_search_text(search_text)
-        field_filter = field_filter.split()
-        sort_field = sort_field.split()
+        field_filter = field_filter.strip()
+        sort_field = sort_field.strip()
 
     def add_comment(self, object_id, comment):
         """
@@ -73,4 +73,5 @@ class BusinessLayer:
         :param comment: user-specified comment strinf
         :return: success or failure of updating document with comment
         """
-        comment = 'TBD'
+        comment = comment.strip()
+        self.dl.add_comment(object_id, comment);

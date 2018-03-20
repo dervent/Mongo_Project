@@ -18,10 +18,19 @@ function searchForDocs() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
-            document.getElementById('desc1').innerHTML =
+            document.getElementById('results').innerHTML =
             this.response;
         }
     };
     xhttp.open("GET", url, true);
     xhttp.send();
+}
+
+function addComment() {
+    // When the user adds comment, make a POST request
+}
+
+function goBackToTop() {
+    // A "Back to Top" button will be displayed on the homepage.
+    // When the user scrolls far down and clicks on the button, they should go to the top of the page.
 }

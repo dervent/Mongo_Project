@@ -21,11 +21,11 @@ This is the repository for group 5's Contemporary Databases (ISTE.438.01) projec
     _If there are any more dependencies/modules that you have to use, add them to the text file._
 
 ## Running the App Locally
- 1. Ensure you have activated your virtual environment
+ 1. Ensure you have started up your local MongoDB database and activated your virtual environment
  2. Navigate to the `Mongo_Project\app` directory and set the `FLASK_APP` env variable <br/>
-    `$ set FLASK_APP = app.js` _(use `export` on Mac)_
+    `$ set FLASK_APP=app.py` _(use `export` on Mac)_
  3. Run the application <br/>
-    `$ python app.js` <br/>
+    `$ flask run` <br/>
  4. Open a browser and navigate to `http://127.0.0.1:5000/` to interact with the app
 
 ## References
