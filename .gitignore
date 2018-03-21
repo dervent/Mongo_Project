@@ -1,3 +1,4 @@
-# NodeJS packages/directories
-package*.json
-node_modules
+# Compiled Python Files
+*.pyc
+# IDE-related
+.idea
