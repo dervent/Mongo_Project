@@ -31,6 +31,7 @@ class BusinessLayer:
         search_text = self.format_search_text(search_text)
         cursor = self.dl.search_by_default(search_text)
         for document in cursor:
+            # convert duration field to minutes and seconds
             self.documents_list.append(document)
         return self.documents_list
 
