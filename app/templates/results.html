@@ -1,15 +1,26 @@
-<!--
-Jinja2 template used by Flask to return data in HTML
--->
+{# Jinja2 template used by Flask to return data in HTML #}
 {% for document in documents_list %}
+    {% set tags_list = document.tags.split(',') %}
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
         <div class="mdl-card mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet mdl-shadow--2dp">
             <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">{{document.title}}</h2>
+                <h2 class="mdl-card__title-text">{{document.name}}</h2>
             </div>
             <div class="mdl-card__supporting-text">
                 <p>{{document.description}}</p>
+                <strong>Tags</strong>
+                {% for tag in tags_list %}
+                    {# Since the tags array is actually a string in the database,
+                    remove square brackets and single quotes #}
+                    {# There might be a more effective way to do this #}
+                    {% set tag = tag | replace('\'','') %}
+                    {% set tag = tag | replace('[','') %}
+                    {% set tag = tag | replace(']','') %}
+                    <span class="mdl-chip">
+                        <span class="mdl-chip__text">{{ tag }}</span>
+                    </span>
+                {% endfor %}
             </div>
         </div>
     </div>

@@ -16,6 +16,7 @@ class DataLayer:
         self.client = MongoClient('localhost', 27017)
         self.database = self.client.TedTalks
         self.collection = self.database.Talks
+        self.excluded_fields = {'main_speaker': 0, 'ratings': 0, 'speaker_occupation': 0, 'title': 0}
 
     def search_by_default(self, search_text):
         """
@@ -23,7 +24,8 @@ class DataLayer:
         :param search_text: user-specified text
         :return: cursor object containing all matching documents
         """
-        return self.collection.find({'title': {'$regex': search_text, '$options': 'i'}})
+        return self.collection.find({'name': {'$regex': search_text, '$options': 'i'}},
+                                    self.excluded_fields)
 
     def search_by_filter(self, search_text, field_filter):
         """
@@ -32,7 +34,8 @@ class DataLayer:
         :param field_filter: user-selected field
         :return: cursor object containing all matching documents
         """
-        return self.collection.find({field_filter: {'$regex': search_text, '$options': 'i'}})
+        return self.collection.find({field_filter: {'$regex': search_text, '$options': 'i'}},
+                                    self.excluded_fields)
 
     def search_by_sort(self, search_text, sort_field):
         """
@@ -42,7 +45,8 @@ class DataLayer:
         :param sort_field: user-selected sort value
         :return: cursor object containing all matching documents
         """
-        return self.collection.find({'title': {'$regex': search_text, '$options': 'i'}}).sort(sort_field, ASCENDING)
+        return self.collection.find({'name': {'$regex': search_text, '$options': 'i'}},
+                                    self.excluded_fields).sort(sort_field, ASCENDING)
 
     def search_by_filter_sort(self, search_text, field_filter, sort_field):
         """
@@ -53,8 +57,8 @@ class DataLayer:
         :param sort_field: user-selected sort value
         :return: cursor object containing all matching documents
         """
-        return self.collection.find({field_filter: {'$regex': search_text, '$options': 'i'}}).\
-            sort(sort_field, ASCENDING)
+        return self.collection.find({field_filter: {'$regex': search_text, '$options': 'i'}},
+                                    self.excluded_fields).sort(sort_field, ASCENDING)
 
     def add_comment(self, object_id, comment):
         """
