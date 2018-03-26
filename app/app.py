@@ -26,6 +26,7 @@ def get_database_results():
     """
     documents_list = []
     searchText = request.args.get('text')
+    # improve this check for blank strings or null values
     if searchText is str or not searchText.isspace():
         documents_list = business_layer.BusinessLayer().search_by_default(searchText)
     return render_template('results.html', documents_list=documents_list)
@@ -36,8 +37,9 @@ def update_comment():
     """
     Accept a POST request with comment text and object_id
     Update specified document with comment
-    :return: TBD
+    :return: status code of 201 (Created) or 500 (Internal Server Error)
     """
     commentText = request.args.get('text')
     object_id = request.args.get('object_id')
-    business_layer.BusinessLayer().add_comment(object_id, commentText)
+    return business_layer.BusinessLayer().add_comment(object_id, commentText)
+

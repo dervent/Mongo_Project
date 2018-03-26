@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from pymongo import ASCENDING
 from bson.objectid import ObjectId
+import flask
 import gridfs
 
 
@@ -65,13 +66,13 @@ class DataLayer:
         Add the comment the user entered into the document specified by the BSON ObjectId
         :param object_id: BSON OBjectId()
         :param comment: user-specified textual comment
-        :return: true if the document was updated correctly, false if otherwise
+        :return: Response object with status code of 201 (Created) or 500 (Internal Server Error)
         """
         update = self.collection.update_one({'_id': ObjectId(object_id)}, {'$push' : {'comments': comment}})
         if update.matched_count == 1:
-            return True
+            return flask.Response(status=201)
         else:
-            return False
+            return flask.Response(status=500)
 
     def get_image(self, object_id):
         """

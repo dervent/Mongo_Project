@@ -17,7 +17,13 @@
                             <span class="mdl-chip__text">{{ tag }}</span>
                         </span>
                     {% endfor %}
-                    <p id="object_id" hidden>{{document._id}}</p>
+                    <br/><p id="object_id" hidden>{{document._id}}</p><br/>
+                    {% if document.comments|length > 0 %}
+                        <strong>Comments:</strong>
+                        {% for comment in document.comments %}
+                            <p>{{ comment }}</p>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
