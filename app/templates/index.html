@@ -14,7 +14,7 @@
 <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-200">
     <header class="mdl-layout__header mdl-color--grey-400 mdl-color-text--grey-800">
         <div class="mdl-layout__header-row">
-            <span id="headerTitle" class="mdl-layout-title">Ted Talk Search</span>
+            <span id="headerTitle" class="mdl-layout-title">Ted Talks Search</span>
         </div>
     </header>
     <main class="mdl-layout__content">
@@ -25,7 +25,7 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input type="search" onsearch="searchForDocs()" id="searchBar" class="mdl-textfield__input darker"
                            type="text"></input>
-                    <label class="mdl-textfield__label darker" for="searchBar">Search Term..</label>
+                    <label class="mdl-textfield__label darker" for="searchBar">Begin your search here. . .</label>
                 </div>
             </div>
             <div class="mdl-cell">
@@ -75,13 +75,13 @@
         <ul class="mdl-menu mdl-js-menu" for="sortOptions">
             <!-- <li class="mdl-list__item" disabled>Sort By:</li>-->
             <li class="mdl-menu__item">Most Viewed</li>
-            <li class="mdl-menu__item">Newest (By Date)</li>
-            <li class="mdl-menu__item">Most Comments</li>
+            <li class="mdl-menu__item">Most Recent</li>
+            <li class="mdl-menu__item">Most Commented</li>
         </ul>
 
         <div id="results">
             <!-- AJAX call returns all matching documents to this div. See Jinja2 template for format -->
-            <p style="text-align: center">Begin your search above to see results.</p>
+            <p class="fillerText">Begin your search above to see results.</p>
         </div>
     </main>
 </div>

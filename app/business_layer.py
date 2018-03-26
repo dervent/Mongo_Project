@@ -75,4 +75,4 @@ class BusinessLayer:
         :return: success or failure of updating document with comment
         """
         comment = comment.strip()
-        self.dl.add_comment(object_id, comment);
+        self.dl.add_comment(object_id, comment)

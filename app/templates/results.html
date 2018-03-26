@@ -1,20 +1,25 @@
 {# Jinja2 template used by Flask to return data in HTML #}
-{% for document in documents_list %}
-    <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-card mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet mdl-shadow--2dp">
-            <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">{{document.name}}</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-                <p>{{document.description}}</p>
-                <strong>Tags</strong>
-                {% for tag in document.tags%}
-                    <span class="mdl-chip">
-                        <span class="mdl-chip__text">{{ tag }}</span>
-                    </span>
-                {% endfor %}
+{%  if documents_list|length <= 0%}
+    <p class="fillerText">Your search did not return any results. :(</p>
+{% else %}
+    {% for document in documents_list %}
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="mdl-card mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">{{document.name}}</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <p>{{document.description}}</p>
+                    <strong>Tags</strong>
+                    {% for tag in document.tags%}
+                        <span class="mdl-chip">
+                            <span class="mdl-chip__text">{{ tag }}</span>
+                        </span>
+                    {% endfor %}
+                    <p id="object_id" hidden>{{document._id}}</p>
+                </div>
             </div>
         </div>
-    </div>
-{% endfor %}
+    {% endfor %}
+{% endif %}
