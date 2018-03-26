@@ -72,7 +72,7 @@ class BusinessLayer:
         Add comment to specific result (document)
         :param object_id: hidden object_id of document
         :param comment: user-specified comment strinf
-        :return: success or failure of updating document with comment
+        :return: Response object with status code of 201 (Created) or 500 (Internal Server Error)
         """
         comment = comment.strip()
-        self.dl.add_comment(object_id, comment)
+        return self.dl.add_comment(object_id, comment)
