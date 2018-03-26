@@ -9,19 +9,20 @@ This is the repository for group 5's Contemporary Databases (ISTE.438.01) projec
    a. Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and save to a local directory <br/>
    b. Install Pip by running: `$ python get-pip.py` <br/>
    c. Verify successful installation by running with no errors: `$ pip freeze` <br/>
-   d. Install virtual environment & virtual environment wrapper <br/>
-   `$ pip install virtualenv`<br/>
-   `$ pip install virtualenvwrapper`<br/>
-   `$ pip install virtualenvwrapper -win` _(for Windows only)_ </br>
-4. Create and activate your virtual environment <br/>
-    `$ mkvirtualenv mongo_project` _(or any name you would like)_ <br/>
-    `$ workon mongo_project` <br/>
+4. **(Optional)** Set up and work in a virtual environment. <br/>
+    a. Install virtual environment & virtual environment wrapper <br/>
+        `$ pip install virtualenv`<br/>
+        `$ pip install virtualenvwrapper`<br/>
+        `$ pip install virtualenvwrapper-win` _(for Windows only)_ <br/>
+    b. Create and activate your virtual environment <br/>
+        `$ mkvirtualenv mongo_project` _(or any name you would like)_ <br/>
+        `$ workon mongo_project` <br/>
 5. At the top level of your `Mongo_Project` directory, install all the Python dependencies you will need for the project. <br/>
 	`$ pip install -r requirements.txt` <br/>
     _If there are any more dependencies/modules that you have to use, add them to the text file._
 
 ## Running the App Locally
- 1. Ensure you have started up your local MongoDB database and activated your virtual environment
+ 1. Ensure you have started up your local MongoDB database (and optionally, activated your virtual environment)
  2. Navigate to the `Mongo_Project\app` directory and set the `FLASK_APP` env variable <br/>
     `$ set FLASK_APP=app.py` _(use `export` on Mac)_
  3. Run the application <br/>
