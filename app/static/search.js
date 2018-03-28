@@ -26,9 +26,14 @@ function searchForDocs() {
     xhttp.send();
 }
 
+function openModal(eleID){
+    //ajax request to get information for that ele ID
+    console.log(eleID);
+}
 function addComment() {
     // When the user adds comment, make a POST request
 }
+
 
 function goBackToTop() {
     // A "Back to Top" button will be displayed on the homepage.

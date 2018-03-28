@@ -3,19 +3,15 @@
     margin-right: 3%;
     font-size: 2em;
 }
-
 #fieldOptions, #filterOptions{
     margin: 20px 0;
 }
-
-
 .mdl-textfield__label.darker{
     color: rgba(0, 0, 0, 0.5) !important;
 }
 .mdl-textfield__input.darker{
     border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
 }
-
 .fillerText {
    text-align: center;
     font-size: 1.5em;

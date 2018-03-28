@@ -9,9 +9,15 @@
                 <div class="mdl-card__title">
                     <h2 class="mdl-card__title-text">{{document.name}}</h2>
                 </div>
-                <div class="mdl-card__supporting-text">
+                <div class="mdl-card__menu">
+                  <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="openModal("{{document._id}}")">
+                    <i class="material-icons" style="font-size: 1.5em;">add_circle</i>
+                  </button>
+                </div>
+                <!-- <div class="mdl-card__supporting-text">
                     <p>{{document.description}}</p>
-                    <strong>Tags</strong>
+                </div> -->
+                    <!-- <strong>Tags</strong>
                     {% for tag in document.tags%}
                         <span class="mdl-chip">
                             <span class="mdl-chip__text">{{ tag }}</span>
@@ -23,8 +29,7 @@
                         {% for comment in document.comments %}
                             <p>{{ comment }}</p>
                         {% endfor %}
-                    {% endif %}
-                </div>
+                    {% endif %} -->
             </div>
         </div>
     {% endfor %}
