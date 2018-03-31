@@ -59,7 +59,7 @@
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "tag_Radio">
                        <input type = "radio" id = "tag_Radio" name = "filters"
-                          class = "mdl-radio__button" checked>
+                          class = "mdl-radio__button">
                     </label>
               </span>
             </li>
@@ -68,7 +68,7 @@
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "desc_Radio">
                        <input type = "radio" id = "desc_Radio" name = "filters"
-                          class = "mdl-radio__button" checked>
+                          class = "mdl-radio__button">
                     </label>
                 </span>
             </li>
@@ -77,22 +77,49 @@
 
         <!-- Dropdown for the filter button-->
         <ul class="mdl-menu mdl-js-menu" for="sortOptions">
-            <!-- <li class="mdl-list__item" disabled>Sort By:</li>-->
-            <li class="mdl-menu__item">Most Viewed</li>
-            <li class="mdl-menu__item">Most Recent</li>
-            <li class="mdl-menu__item">Most Commented</li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Most Viewed</span>
+                <span class="mdl-list__item-secondary-action">
+                    <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "mostViewed_Radio">
+                       <input type = "radio" id = "mostViewed_Radio" name = "sorts"
+                          class = "mdl-radio__button" checked>
+                    </label>
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Most Recent</span>
+                <span class="mdl-list__item-secondary-action">
+                    <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "mostRecent_Radio">
+                       <input type = "radio" id = "mostRecent_Radio" name = "sorts"
+                          class = "mdl-radio__button">
+                    </label>
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Most Commented</span>
+                <span class="mdl-list__item-secondary-action">
+                    <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "mostCommented_Radio">
+                       <input type = "radio" id = "mostCommented_Radio" name = "sorts"
+                          class = "mdl-radio__button">
+                    </label>
+                </span>
+            </li>
         </ul>
 
         <div id="results">
             <!-- AJAX call returns all matching documents to this div. See Jinja2 template for format -->
             <p class="fillerText">Begin your search above to see results.</p>
+            <button onclick="goBackToTop()" class="mdl-button mdl-js-button mdl-button--raised back-to-top">
+                Back To Top
+            </button>
         </div>
+
 
         <!-- Modal -->
         <div id="the-modal" class="modal-container">
             <div class="modal-content">
                 <div class="inner-container">
-                  <span onclick="document.getElementById('the-modal').style.display='none'" 
+                  <span onclick="document.getElementById('the-modal').style.display='none'"
                   class="material-icons modal-close-button">clear</span>
                   <span class="search-results"></span>
                   <p>Comments</p>
