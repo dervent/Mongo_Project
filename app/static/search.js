@@ -43,17 +43,14 @@ function openModal(eleID){
      success:function(result){
               // the result will be a fully made modal
               // get the results div and append the modal. It will default as shown
-              // $('#results')[0].append(result);
-              // slightly change the modal to have the close button call this function
-              console.log("jquery is here");
+              $('#results')[0].append(result);
      }
     }
     );
 }
 function closeModal(){
     //get the modal tag
-    //make display none
-    //delete from the page after
+    $("#the-modal").remove();
 
 }
 function addComment() {
