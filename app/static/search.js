@@ -26,6 +26,9 @@ function searchForDocs() {
     xhttp.send();
 }
 
+function openDetailsModal(docId) {
+    //ajax request to get information for that doc ID
+}
 function addComment() {
     // When the user adds comment, make a POST request
 }
