@@ -53,8 +53,23 @@ function closeModal(){
     $("#the-modal").remove();
 
 }
-function addComment() {
+function addComment(tedTalkID) {
     // When the user adds comment, make a POST request
+    var jsonObj = new Object();
+    jsonObj.text = $('#comment-field')[0].value;
+    jsonObj.id = tedTalkID;
+    qurl = 'http://127.0.0.1:5000/comment';
+
+    $.ajax(
+    {
+     url:qurl,
+     type:"POST",
+     data:jsonObj,
+     success:function(){
+         console.log("comment posted");
+     }
+    }
+    );
 }
 
 function goBackToTop() {
