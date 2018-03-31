@@ -49,8 +49,8 @@
                 <span class="mdl-list__item-primary-content">Name</span>
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "name_Radio">
-                       <input type = "radio" id = "name_Radio" name = "filters"
-                          class = "mdl-radio__button" checked>
+                       <input value="name" type = "radio" id = "name_Radio" name = "filters"
+                          class = "mdl-radio__button">
                     </label>
                 </span>
             </li>
@@ -58,16 +58,16 @@
                 <span class="mdl-list__item-primary-content">Tags</span>
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "tag_Radio">
-                       <input type = "radio" id = "tag_Radio" name = "filters"
+                       <input value="Tags" type = "radio" id = "tag_Radio" name = "filters"
                           class = "mdl-radio__button">
                     </label>
               </span>
             </li>
             <li class="mdl-list__item">
-                <span class="mdl-list__item-primary-content">Description </span>
+                <span class="mdl-list__item-primary-content">Description</span>
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "desc_Radio">
-                       <input type = "radio" id = "desc_Radio" name = "filters"
+                       <input value="Description" type = "radio" id = "desc_Radio" name = "filters"
                           class = "mdl-radio__button">
                     </label>
                 </span>
@@ -81,8 +81,8 @@
                 <span class="mdl-list__item-primary-content">Most Viewed</span>
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "mostViewed_Radio">
-                       <input type = "radio" id = "mostViewed_Radio" name = "sorts"
-                          class = "mdl-radio__button" checked>
+                       <input value="Most Viewed" type = "radio" id = "mostViewed_Radio" name = "sorts"
+                          class = "mdl-radio__button">
                     </label>
                 </span>
             </li>
@@ -90,7 +90,7 @@
                 <span class="mdl-list__item-primary-content">Most Recent</span>
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "mostRecent_Radio">
-                       <input type = "radio" id = "mostRecent_Radio" name = "sorts"
+                       <input value="Most Recent" type = "radio" id = "mostRecent_Radio" name = "sorts"
                           class = "mdl-radio__button">
                     </label>
                 </span>
@@ -99,7 +99,7 @@
                 <span class="mdl-list__item-primary-content">Most Commented</span>
                 <span class="mdl-list__item-secondary-action">
                     <label class = "mdl-radio mdl-js-radio mdl-js-ripple-effect" for = "mostCommented_Radio">
-                       <input type = "radio" id = "mostCommented_Radio" name = "sorts"
+                       <input value="Most Commented" type = "radio" id = "mostCommented_Radio" name = "sorts"
                           class = "mdl-radio__button">
                     </label>
                 </span>
@@ -109,10 +109,10 @@
         <div id="results">
             <!-- AJAX call returns all matching documents to this div. See Jinja2 template for format -->
             <p class="fillerText">Begin your search above to see results.</p>
-            <button onclick="goBackToTop()" class="mdl-button mdl-js-button mdl-button--raised back-to-top">
-                Back To Top
-            </button>
         </div>
+        <button onclick="goBackToTop()" class="mdl-button mdl-js-button mdl-button--raised back-to-top">
+            Back To Top
+        </button>
 
 
         <!-- Modal -->
