@@ -4,80 +4,78 @@
 
  function searchForDocs() {
      // Get text from search bar
-     var searchText = document.getElementById("searchBar").value.split(/\s+/);
+     var jsonObj = new Object();
+     jsonObj.text = document.getElementById("searchBar").value;
 
-     // Form URL query
-     var qurl = 'http://127.0.0.1:5000/search?text=';
-     for(var i in searchText) {
-         qurl += "+" + searchText[i];
-     }
-     // Future URL example to take in filter and sort parameters
-     // http://127.0.0.1:5000/search?text=test+something&filter=description&sort=duration
+     var filterVal = $('input[name=filters]:checked').val();
+     var sortVal = $('input[name=sorts]:checked').val();
+
+     if(typeof filterVal != 'undefined') jsonObj.filter = filterVal;
+     if(typeof sortVal != 'undefined') jsonObj.sort = sortVal;
+
+     var qurl = 'http://127.0.0.1:5000/search';
 
      $.ajax(
      {
-      url: qurl,
+      url:qurl,
       type:"GET",
       async:true,
+      data:jsonObj,
       success:function(result){
           console.log("jquery is here");
           $('#results')[0].innerHTML = result;
       }
      }
      );
-     // Make AJAX call to server
-     // var xhttp = new XMLHttpRequest();
-     // xhttp.onreadystatechange = function () {
-     //     if(this.readyState == 4 && this.status == 200) {
-     //         console.log("hereeeee");
-     //         $('#results')[0].innerHTML =
-     //         this.response;
-     //     }
-     // };
-     // xhttp.open("GET", url, true);
-     // xhttp.send();
  }
 
 
 function openModal(eleID){
-    //ajax GET request information for that ele ID
-    //modal inner html = this.response
-    //modal.show
-    var qurl = 'http://127.0.0.1:5000/search?id='+eleID;
+    var jsonObj = new Object();
+    jsonObj.id = eleID;
+    qurl = 'http://127.0.0.1:5000/modal';
     $.ajax(
     {
-     url: qurl,
+     url:qurl,
      type:"GET",
      async:true,
+     data:jsonObj,
      success:function(result){
-         //the result will be a fully made modal (dialog tag)
-         //get the results div and append the dialog tag
-         $('#results')[0].append(result);
-         //store dialog tag in a variable
-         dialogEle = $('dialog')[0];
-         //dialogEle.show()
-         //THERE NEEDS TO BE A BUTTON IN THE DIALOAG that will call closeModal() function
-         console.log("jquery is here");
+              // the result will be a fully made modal
+              // get the results div and append the modal. It will default as shown
+              $('#results')[0].append(result);
      }
     }
     );
-
-    console.log(eleID);
 }
 function closeModal(){
-    //get the dialog tag from the DOM
-    //this could be done inline....but thats kinda gross
-    dialogEle = $('dialog')[0];
-    //dialog.close()
+    //get the modal tag
+    $("#the-modal").remove();
 
 }
-function addComment() {
+function addComment(tedTalkID) {
     // When the user adds comment, make a POST request
+    var jsonObj = new Object();
+    jsonObj.text = $('#comment-field')[0].value;
+    jsonObj.id = tedTalkID;
+    qurl = 'http://127.0.0.1:5000/comment';
+
+    $.ajax(
+    {
+     url:qurl,
+     type:"POST",
+     data:jsonObj,
+     success:function(){
+         console.log("comment posted");
+     }
+    }
+    );
 }
 
 function goBackToTop() {
     // A "Back to Top" button will be displayed on the homepage.
     // When the user scrolls far down and clicks on the button, they should go to the top of the page.
-    $(window).scrollTop(0);
+    //WHICH JS COMMAND WORKS!
+    window.scrollTo(0,0);
     console.log("back to top");
 }
