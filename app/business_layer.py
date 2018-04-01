@@ -58,9 +58,10 @@ class BusinessLayer:
         return self.get_docs_in_list(cursor)
 
     def get_details(self, object_id):
-        # convert duration field to minutes and seconds
         document = self.dl.get_details(object_id)
         document['duration'] = time.strftime('%M:%S', time.gmtime(document['duration']))
+        document['film_date'] = time.strftime('%m/%d/%Y', time.gmtime(document['film_date']))
+        document['views'] = '{:,}'.format(document['views'])
         return document
 
     def add_comment(self, object_id, comment):
