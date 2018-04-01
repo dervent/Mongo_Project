@@ -2,6 +2,7 @@
  * Client-Side JavaScript
  */
 var BASE_URL = 'http://127.0.0.1:5000';
+//This runs to stop menus from closing on first click
 
 function searchForDocs() {
     // Get text from search bar
@@ -52,6 +53,7 @@ function closeModal(){
     $("#the-modal").css({'display' : 'none'});
     $("#detailsBody").empty();
     $("#submit-comment-button").remove();
+    $(".comment-confirm").remove();
 }
 
 function addComment(object_id) {
@@ -68,8 +70,8 @@ function addComment(object_id) {
             async:true,
             data:jsonObj,
             success:function(){
-                // TODO: Clear the comment field and display a message below it in green, 'Comment successfully posted!'
-                console.log("comment posted");
+                $("#comment-field").val('');
+                $("#comment-box").append("<h4 class='comment-confirm' style='color: #2e7d32'>Comment Successfully Posted!</h4>");
             }
         }
     );
@@ -78,6 +80,13 @@ function addComment(object_id) {
 function goBackToTop() {
     // A "Back to Top" button will be displayed on the homepage.
     // When the user scrolls far down and clicks on the button, they should go to the top of the page.
-    //WHICH JS COMMAND WORKS!
     $(".mdl-layout__content").animate({scrollTop:0});
+}
+
+function clearCheckBoxes(){
+    //make the button to call this
+    //also check to make sure dropdowns stay down
+    console.log("Clearing that shit");
+    $(".mdl-radio").removeClass("is-checked");
+
 }
