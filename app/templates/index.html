@@ -121,18 +121,22 @@
                 <div class="inner-container">
                   <span onclick="closeModal()"
                   class="material-icons modal-close-button">clear</span>
+                  <span id="details-image"></span>
                   <span id="detailsBody"></span>
-                  <p>Comments</p>
-                  <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" id="comment-field">
-                      <label class="mdl-textfield__label" for="comment-field">Leave your comment</label>
-                  </div>
+                  <p class="details-comment">Comments:</p>
+                  <form>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="comment-field">
+                        <label class="mdl-textfield__label" for="comment-field">Leave your comment</label>
+                    </div>
+                    <button onclick="addComment(ID)" id="submit-comment-button" class="mdl-button mdl-js-button mdl-button--raised">
+                      Submit
+                    </button>
+                  </form>
                 </div>
             </div>
         </div>
-         <button onclick="addComment(ID)" class="mdl-button mdl-js-button mdl-button--raised back-to-top">
-                      Back To Top
-         </button>
+
     </main>
 </div>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>

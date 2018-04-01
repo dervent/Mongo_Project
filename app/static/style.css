@@ -21,6 +21,28 @@
     font-size: 1.5em;
 }
 
+.mdl-textfield__label:after {
+    background-color: #e62b1e;
+}
+
+.mdl-radio__inner-circle {
+    background: #e62b1e;
+}
+
+.mdl-radio.is-checked .mdl-radio__outer-circle {
+        border: 2px solid #e62b1e;
+}
+
+.mdl-grid {
+    height: 100px;
+}
+
+.mdl-card {
+    min-height: 80px;
+}
+
+/*** Header ***/
+
 .header-color {
 	background-color: #333 !important;
 }
@@ -45,6 +67,8 @@
 .mdl-list__item-primary-content {
 	padding-right: 10px;
 }
+
+/*** Modal ***/
 
 .modal-close-button {
 	padding: 8px 12px;
@@ -81,6 +105,8 @@
     padding: 0;
     outline: 0;
     width: 600px;
+    max-height: 550px;
+    overflow: auto;
     box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -88,25 +114,41 @@
     padding: 2em 16px;
 }
 
-.mdl-textfield__label:after {
-	background-color: #e62b1e;
+#submit-comment-button {
+    display: block;
 }
 
-.mdl-radio__inner-circle {
-    background: #e62b1e;
+/*** Modal Details ***/
+
+.details-image {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.mdl-radio.is-checked .mdl-radio__outer-circle {
-	    border: 2px solid #e62b1e;
+.details-name {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.mdl-grid {
-	height: 100px;
+.details-comment {
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-weight: bold;
 }
 
-.mdl-card {
-	min-height: 80px;
+.details-watch-video, .details-watch-video a {
+    margin-top: 15px;
+    color: #e62b1e;
+    text-decoration: none;
 }
+
+.details-watch-video a:hover {
+    color: rgba(230, 43, 30, 0.7);
+    transition: .2s;
+}
+
 .back-to-top{
     position: fixed; /* Fixed/sticky position */
     bottom: 20px; /* Place the button at the bottom of the page */
