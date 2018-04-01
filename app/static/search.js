@@ -71,7 +71,12 @@ function addComment(object_id) {
             data:jsonObj,
             success:function(){
                 $("#comment-field").val('');
-                $("#comment-box").append("<h4 class='comment-confirm' style='color: #2e7d32'>Comment Successfully Posted!</h4>");
+                $("#comment-box").append("<p class='comment-confirm' style='color: #2e7d32'><strong>" +
+                    "Comment successfully posted!</strong></p>");
+            },
+            error:function() {
+                 $("#comment-box").append("<p class='comment-fail' style='color: #8B0000'><strong>" +
+                    "Unable to post your comment Please try another time.</strong></p>");
             }
         }
     );
@@ -83,10 +88,19 @@ function goBackToTop() {
     $(".mdl-layout__content").animate({scrollTop:0});
 }
 
-function clearCheckBoxes(){
+function clearSelectedRadioButtons(){
     //make the button to call this
     //also check to make sure dropdowns stay down
     console.log("Clearing that shit");
     $(".mdl-radio").removeClass("is-checked");
 
+}
+
+function clearCommentConfirm() {
+    if($(".comment-confirm").length) {
+        $(".comment-confirm").remove();
+    }
+    else if($(".comment-fail").length) {
+        $(".comment-fail").remove();
+    }
 }

@@ -38,7 +38,7 @@
                     <span>Sort</span>
                     <i class="material-icons">arrow_drop_down</i>
                 </button>
-                <button id="Clear" onclick="clearCheckBoxes()" class="mdl-button mdl-js-button">
+                <button id="Clear" onclick="clearSelectedRadioButtons()" class="mdl-button mdl-js-button">
                     <span>Clear</span>
                 </button>
             </div>
@@ -126,7 +126,7 @@
                     <span id="details-image"></span>
                     <span id="detailsBody"></span>
                     <div id='comment-box' class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="comment-field">
+                        <input class="mdl-textfield__input" type="text" id="comment-field" onclick="clearCommentConfirm()">
                         <label class="mdl-textfield__label" for="comment-field">Leave your comment</label>
                     </div>
                 </div>

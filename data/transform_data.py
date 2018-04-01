@@ -10,8 +10,8 @@ collection = database.Talks
 
 cursor = collection.find()
 for doc in cursor:
-    # add 'comments' field with empty array values
-    collection.update_one({'_id': doc['_id']}, {'$set': {'comments': []}})
+    # add 'comments' field with empty array values, and 'num_comments' field with initial value of zero
+    collection.update_one({'_id': doc['_id']}, {'$set': {'comments': [], 'num_comments': 0}})
 
     # reformat each 'tags' field value to an array of strings
     arrayString = doc['tags']
