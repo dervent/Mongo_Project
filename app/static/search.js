@@ -40,9 +40,8 @@ function openDetailsModal(object_id){
             async:true,
             data:jsonObj,
             success:function(result){
-                // the result will be a fully made modal
-                // get the results div and append the modal. It will default as shown
                 $('#detailsBody')[0].innerHTML = result;
+                $('#submit-comment-button').detach().insertAfter('#comment-box');
                 $('#the-modal').css({'display': 'block'})
             }
         }
@@ -50,9 +49,9 @@ function openDetailsModal(object_id){
 }
 
 function closeModal(){
-    //get the modal tag
     $("#the-modal").css({'display' : 'none'});
     $("#detailsBody").empty();
+    $("#submit-comment-button").remove();
 }
 
 function addComment(object_id) {
@@ -60,14 +59,16 @@ function addComment(object_id) {
     var jsonObj = new Object();
     jsonObj.text = $('#comment-field')[0].value;
     jsonObj.id = object_id;
-    qurl = BASE_URL + '/comment';
+    var qurl = BASE_URL + '/comment';
 
     $.ajax(
         {
             url:qurl,
             type:"POST",
+            async:true,
             data:jsonObj,
             success:function(){
+                // TODO: Clear the comment field and display a message below it in green, 'Comment successfully posted!'
                 console.log("comment posted");
             }
         }

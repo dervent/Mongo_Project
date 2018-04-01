@@ -10,11 +10,13 @@
             <span class="mdl-chip__text">{{ tag }}</span>
         </span>
     {% endfor %}
+    <p class="details-watch-video"><a href="{{ details.url }}" target="_blank">Watch Video on Ted.com</a></p>
     {% if details.comments|length > 0 %}
         <p><strong>Comments:</strong></p>
         {% for comment in details.comments %}
             <p>{{ comment }}</p>
         {% endfor %}
     {% endif %}
-    <p class="details-watch-video"><a href="{{ details.url }}" target="_blank">Watch Video on Ted.com</a></p>
+    <button onclick="addComment('{{ details._id }}')" id="submit-comment-button"
+            class="mdl-button mdl-js-button mdl-button--raised">Comment</button>
 {% endif %}

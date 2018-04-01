@@ -64,6 +64,5 @@ class BusinessLayer:
         document['views'] = '{:,}'.format(document['views'])
         return document
 
-    def add_comment(self, object_id, comment):
-        comment = comment.strip()
-        return self.dl.add_comment(object_id, comment)
+    def add_comment(self, multiDict):
+        return self.dl.add_comment(multiDict['id'], multiDict['text'].strip())
