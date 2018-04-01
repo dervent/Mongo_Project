@@ -14,7 +14,8 @@ class DataLayer:
         self.client = MongoClient('localhost', 27017)
         self.database = self.client.TedTalks
         self.collection = self.database.Talks
-        self.excluded_fields = {'main_speaker': 0, 'ratings': 0, 'speaker_occupation': 0, 'title': 0, '_id': 0}
+        self.excluded_fields = {'main_speaker': 0, 'ratings': 0, 'speaker_occupation': 0,
+                                'related_talks':0, 'title': 0}
 
     def get_names_by_default(self, search_text):
         return self.collection.find({'name': {'$regex': search_text, '$options': 'i'}}, {'name': 1})
@@ -32,7 +33,7 @@ class DataLayer:
                                     self.excluded_fields).sort(sort_field, ASCENDING)
 
     def get_details(self, object_id):
-        return self.collection.find({'_id': ObjectId(object_id)}, {self.excluded_fields})
+        return self.collection.find_one({'_id': ObjectId(object_id)}, self.excluded_fields)
 
     def add_comment(self, object_id, comment):
         update = self.collection.update_one({'_id': ObjectId(object_id)}, {'$push' : {'comments': comment}})
