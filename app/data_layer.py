@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from pymongo import ASCENDING
+from pymongo import DESCENDING
 from bson.objectid import ObjectId
 import flask
 import gridfs
@@ -26,11 +26,11 @@ class DataLayer:
 
     def get_names_by_sort(self, search_text, sort_field):
         return self.collection.find({'name': {'$regex': search_text, '$options': 'i'}},
-                                    self.excluded_fields).sort(sort_field, ASCENDING)
+                                    self.excluded_fields).sort(sort_field, DESCENDING)
 
     def get_names_by_filter_sort(self, search_text, field_filter, sort_field):
         return self.collection.find({field_filter: {'$regex': search_text, '$options': 'i'}},
-                                    self.excluded_fields).sort(sort_field, ASCENDING)
+                                    self.excluded_fields).sort(sort_field, DESCENDING)
 
     def get_details(self, object_id):
         return self.collection.find_one({'_id': ObjectId(object_id)}, self.excluded_fields)

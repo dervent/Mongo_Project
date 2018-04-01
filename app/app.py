@@ -32,7 +32,4 @@ def get_document_details():
 
 @app.route('/comment', methods=['POST'])
 def update_comment():
-    commentText = request.args.get('text')
-    object_id = request.args.get('object_id')
-    return business_layer.BusinessLayer().add_comment(object_id, commentText)
-
+    return business_layer.BusinessLayer().add_comment(request.form)
