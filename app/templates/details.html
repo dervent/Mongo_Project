@@ -1,0 +1,20 @@
+{% if details %}
+    <p>{{ details.name }}</p>
+    <p><strong>Date: </strong>{{ details.film_date }}</p>
+    <p><strong>Time: </strong>{{ details.duration }}</p>
+    <p>{{ details.description }}</p>
+    <p><strong>Views: </strong>{{ details.views }}</p>
+    <strong>Tags</strong>
+    {% for tag in details.tags%}
+        <span class="mdl-chip">
+            <span class="mdl-chip__text">{{ tag }}</span>
+        </span>
+    {% endfor %}
+    {% if details.comments|length > 0 %}
+        <p><strong>Comments:</strong></p>
+        {% for comment in details.comments %}
+            <p>{{ comment }}</p>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ details.url }}" target="_blank">Watch Video on Ted.com</a>
+{% endif %}

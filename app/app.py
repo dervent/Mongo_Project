@@ -1,6 +1,8 @@
 from flask import Flask, request
 from flask import render_template
+from flask import json
 import business_layer
+import urlparse
 
 # Entry point for micro-service
 
@@ -17,13 +19,15 @@ def show_homepage():
 
 
 @app.route('/search', methods=['GET'])
-def get_database_results():
-    documents = []
-    searchText = request.args.get('text')
-    # improve this check for blank strings or null values
-    if searchText is str or not searchText.isspace():
-        documents = business_layer.BusinessLayer().get_names_by_default(searchText)
-    return render_template('results.html', documents=documents)
+def get_results():
+    documents = business_layer.BusinessLayer().get_results(request.args)
+    return render_template('titles.html', documents=documents)
+
+
+@app.route('/details', methods=['GET'])
+def get_document_details():
+    document = business_layer.BusinessLayer().get_details(request.args.get('id'))
+    return render_template('details.html', details=document)
 
 
 @app.route('/comment', methods=['POST'])
