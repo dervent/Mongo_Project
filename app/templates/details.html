@@ -1,6 +1,14 @@
 {# Jinja2 template used by Flask to return document details in HTML #}
 {% if details %}
-<img src="static/media/placeholder.jpg" alt="Speaker Image" height="250px" width="150px" style="float:right"/>
+    <div id="image-div">
+        {% if details.image_id %}
+            <img src="static/media/img/{{ details.image_name }}" alt="Speaker Image"/>
+            <p><em>{{ details.main_speaker }}</em></p>
+        {% else %}
+            <img src="static/media/img/placeholder.png" alt="Speaker Image"/>
+            <p><em>Image of the speaker at this event is not yet available.</em></p>
+        {% endif %}
+    </div>
     <p class="details-name">{{ details.name }}</p>
     <p>{{ details.description }}</p>
     <p><strong>Date: </strong>{{ details.film_date }}</p>
