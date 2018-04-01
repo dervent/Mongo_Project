@@ -64,6 +64,8 @@ class BusinessLayer:
         document['duration'] = time.strftime('%M:%S', time.gmtime(document['duration']))
         document['film_date'] = time.strftime('%m/%d/%Y', time.gmtime(document['film_date']))
         document['views'] = '{:,}'.format(document['views'])
+        if 'image_id' in document:
+            document['image_name'] = self.dl.get_image(document['image_id'])
         return document
 
     def add_comment(self, multiDict):

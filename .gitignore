@@ -2,3 +2,5 @@
 *.pyc
 # IDE-related
 .idea
+# Images downloaded from server
+app/static/media/img/*
