@@ -35,6 +35,8 @@ class BusinessLayer:
             return 'views'
         elif 'most recent' in sort:
             return 'film_date'
+        elif 'most commented' in sort:
+            return 'num_comments'
 
     def get_docs_in_list(self, cursor):
         for document in cursor:

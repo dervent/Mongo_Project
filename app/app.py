@@ -1,8 +1,6 @@
 from flask import Flask, request
 from flask import render_template
-from flask import json
 import business_layer
-import urlparse
 
 # Entry point for micro-service
 
