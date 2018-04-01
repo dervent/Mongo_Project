@@ -42,7 +42,8 @@ function openDetailsModal(object_id){
             success:function(result){
                 // the result will be a fully made modal
                 // get the results div and append the modal. It will default as shown
-                $('#results')[0].innerHTML = result;
+                $('#detailsBody')[0].innerHTML = result;
+                $('#the-modal').css({'display': 'block'})
             }
         }
     );
@@ -50,8 +51,8 @@ function openDetailsModal(object_id){
 
 function closeModal(){
     //get the modal tag
-    $("#the-modal").remove();
-
+    $("#the-modal").css({'display' : 'none'});
+    $("#detailsBody").empty();
 }
 
 function addComment(object_id) {
