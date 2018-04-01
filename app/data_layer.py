@@ -11,8 +11,9 @@ class DataLayer:
     """
 
     def __init__(self):
-        self.client = MongoClient('localhost', 27017)
-        self.database = self.client.TedTalks
+        self.client = MongoClient('ds237855.mlab.com', 37855)
+        self.database = self.client["ted-talk-database"]
+        self.database.authenticate("admin","password")
         self.collection = self.database.Talks
         self.excluded_fields = {'main_speaker': 0, 'ratings': 0, 'speaker_occupation': 0,
                                 'related_talks':0, 'title': 0}

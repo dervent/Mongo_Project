@@ -79,6 +79,5 @@ function goBackToTop() {
     // A "Back to Top" button will be displayed on the homepage.
     // When the user scrolls far down and clicks on the button, they should go to the top of the page.
     //WHICH JS COMMAND WORKS!
-    window.scrollTo(0,0);
-    console.log("back to top");
+    $(".mdl-layout__content").animate({scrollTop:0});
 }
