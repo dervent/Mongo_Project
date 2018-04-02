@@ -88,11 +88,11 @@ function goBackToTop() {
     $(".mdl-layout__content").animate({scrollTop:0});
 }
 
-function clearSelectedRadioButtons(){
+function clearTextAndSelections(){
     //make the button to call this
     //also check to make sure dropdowns stay down
-    console.log("Clearing that shit");
     $(".mdl-radio").removeClass("is-checked");
+    $("#searchBar").val("");
 
 }
 
