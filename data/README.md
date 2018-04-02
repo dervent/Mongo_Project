@@ -6,6 +6,9 @@ This data was then pruned to suit the needs of this project.
 Use the command to load the CSV data set (found inside `\ted_talks_dataset` directory) into a local instance of your database: <br/>
 `mongoimport --db TedTalks --collection Talks --type csv --file <your_local_path>\ted_main.csv --headerline`
 
+## Data Transformation
+Run the _transform_data.py_ to transform the remaining data in the Talks collection. Your database instance should be running.
+
 ## Loading Images
 The main speakers for the first five documents in the TedTalks database were obtained from around the web. These images capture the speaker doing the actual Ted Talk.
  
