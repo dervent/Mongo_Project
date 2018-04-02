@@ -1,14 +1,13 @@
-/**
- * Client-Side JavaScript
- */
+// Localhost URL and port number used by application.
 var BASE_URL = 'http://127.0.0.1:5000';
-//This runs to stop menus from closing on first click
 
 function searchForDocs() {
-    // Get text from search bar
     var jsonObj = new Object();
+
+    // Get text from search bar.
     jsonObj.text = document.getElementById("searchBar").value;
 
+    // Get values of selected radio buttons.
     var filterVal = $('input[name=filters]:checked').val();
     var sortVal = $('input[name=sorts]:checked').val();
 
@@ -17,6 +16,7 @@ function searchForDocs() {
 
     var qurl = BASE_URL + '/search';
 
+    // Make AJAX GET request to server to get list of names/titles.
     $.ajax(
         {
             url:qurl,
@@ -24,6 +24,7 @@ function searchForDocs() {
             async:true,
             data:jsonObj,
             success:function(result){
+                // Response with document names/titles is displayed to user.
                 $('#results')[0].innerHTML = result;
             }
         }
@@ -34,6 +35,8 @@ function openDetailsModal(object_id){
     var jsonObj = new Object();
     jsonObj.id = object_id;
     var qurl = BASE_URL + '/details';
+
+    // Make AJAX GET request to server to get details for a document.
     $.ajax(
         {
             url:qurl,
@@ -41,6 +44,7 @@ function openDetailsModal(object_id){
             async:true,
             data:jsonObj,
             success:function(result){
+                // Display modal with details for selected title.
                 $('#detailsBody')[0].innerHTML = result;
                 $('#submit-comment-button').detach().insertAfter('#comment-box');
                 $('#the-modal').css({'display': 'block'})
@@ -50,6 +54,7 @@ function openDetailsModal(object_id){
 }
 
 function closeModal(){
+    // Hide modal and dispose of document details.
     $("#the-modal").css({'display' : 'none'});
     $("#detailsBody").empty();
     $("#submit-comment-button").remove();
@@ -57,12 +62,14 @@ function closeModal(){
 }
 
 function addComment(object_id) {
-    // When the user adds comment, make a POST request
     var jsonObj = new Object();
+
+    // Get user string from comment textbox.
     jsonObj.text = $('#comment-field')[0].value;
     jsonObj.id = object_id;
     var qurl = BASE_URL + '/comment';
 
+    // Make AJAX POST request to server add comment to document.
     $.ajax(
         {
             url:qurl,
@@ -83,20 +90,19 @@ function addComment(object_id) {
 }
 
 function goBackToTop() {
-    // A "Back to Top" button will be displayed on the homepage.
-    // When the user scrolls far down and clicks on the button, they should go to the top of the page.
+    // Scrolls back to the top of the page.
     $(".mdl-layout__content").animate({scrollTop:0});
 }
 
 function clearTextAndSelections(){
-    //make the button to call this
-    //also check to make sure dropdowns stay down
+    // Clear radio button selections and remove text from search bar.
     $(".mdl-radio").removeClass("is-checked");
     $("#searchBar").val("");
 
 }
 
-function clearCommentConfirm() {
+function clearCommentMessage() {
+    // Clear comment message, if present.
     if($(".comment-confirm").length) {
         $(".comment-confirm").remove();
     }
